@@ -1,0 +1,30 @@
+{
+  "name": "dnsmasq-leases",
+  "version": "0.1.0",
+  "description": "Parses dnsmasq lease file declarations",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm run-script lint && npm run-script mocha",
+    "mocha": "NODE_ENV=test ./node_modules/mocha/bin/mocha",
+    "lint": "./node_modules/eslint/bin/eslint.js ."
+  },
+  "author": "Alex Scotton (alex@alexscotton.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Illizian/dnsmasq-leases.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Illizian/dnsmasq-leases/issues"
+  },
+  "homepage": "https://github.com/Illizian/dnsmasq-leases#readme",
+  "devDependencies": {
+    "eslint": "^3.7.1",
+    "eslint-plugin-mocha": "^4.6.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^3.1.2"
+  }
+}
