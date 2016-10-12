@@ -8,13 +8,13 @@ This module is inspired by the [dhcpd-leases module](https://www.npmjs.com/packa
 Install the module
 
 ```
-npm install --save dhcpd-leases
+npm install --save dnsmasq-leases
 ```
 
 ### Usage
 
 ```js
-const leases = require('dhcpd-leases');
+const leases = require('dnsmasq-leases');
 const fs = require('fs');
 
 let data = fs.readFileSync('/var/lib/misc/dnsmasq.leases', 'utf8');

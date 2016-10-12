@@ -1,6 +1,6 @@
 {
   "name": "dnsmasq-leases",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Parses dnsmasq lease file declarations",
   "main": "index.js",
   "directories": {
