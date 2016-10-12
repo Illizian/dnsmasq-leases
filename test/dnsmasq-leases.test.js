@@ -16,6 +16,23 @@ const several = [
   '1476175366 00:00:00:00:00:09 192.168.0.9 host9 *',
   '1476175366 00:00:00:00:00:10 192.168.0.10 host10 *'
 ].join('\n');
+const emptylines = [
+  '',
+  ' ',
+  ' ',
+  '1476175366 00:00:00:00:00:01 192.168.0.1 host1 *',
+  '1476175366 00:00:00:00:00:02 192.168.0.2 host2 *',
+  '1476175366 00:00:00:00:00:03 192.168.0.3 host3 *',
+].join('\n');
+const comments = [
+  '# This file contains many comments',
+  '# And another comment',
+  ' # A comment with an additional space at the start',
+  '// A comment using slashes',
+  '1476175366 00:00:00:00:00:01 192.168.0.1 host1 *',
+  '1476175366 00:00:00:00:00:02 192.168.0.2 host2 *',
+  '1476175366 00:00:00:00:00:03 192.168.0.3 host3 *',
+].join('\n');
 
 describe('dnsmasq parser', function() {
   it('should extract the correct details from a test string with a single lease', function() {
@@ -59,5 +76,17 @@ describe('dnsmasq parser', function() {
 
   it('should throw an exception if a string contains an invalid lease', function() {
     expect(leases).withArgs(invalid).to.throwException();
+  });
+
+  it('should ignore empty lines', function() {
+    expect(leases).withArgs(emptylines).to.not.throwException();
+
+    expect(leases(emptylines).length).to.equal(3);
+  });
+
+  it('should ignore comment lines', function() {
+    expect(leases).withArgs(comments).to.not.throwException();
+
+    expect(leases(comments).length).to.equal(3);
   });
 });
